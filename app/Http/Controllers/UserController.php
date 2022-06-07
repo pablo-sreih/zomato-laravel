@@ -48,4 +48,18 @@ class UserController extends Controller
         }
         
     }
+
+    public function addUser(Request $request){
+        $user = New User;
+        $user->full_name = $request->full_name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->is_admin = $request->is_admin;
+        $user->address = $request->address;
+        $user->save();
+
+        return response()->json([
+            "status" => "Success"
+        ]);
+    }
 }

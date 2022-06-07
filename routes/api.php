@@ -24,3 +24,4 @@ Route::get('/reviews', [ReviewController::class, 'getAllReviews']);
 Route::get('/getuser', [UserController::class, 'getUserById']);
 Route::get('/login', [UserController::class, 'userLogin']);
 Route::get('/find_resto', [RestoController::class, 'findResto']);
+Route::post('/addUser', [UserController::class, 'addUser']);
