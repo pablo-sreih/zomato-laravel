@@ -24,4 +24,24 @@ class UserController extends Controller
             "user" => $user,
         ]);
     }
+
+    public function userLogin(Request $request){
+        // $email = User::find($request->email);
+        // $password = User::find($request->password);
+        $email = $request->email;
+        $password = $request->password;
+        $user = User::where('email', $email)->first();
+        
+        if ($password == $user->password){
+            return response()->json([
+                "status" => "Success",
+                "user_id" => $user->id,
+            ]);
+        }else{
+            return response()->json([
+                "status" => "Wrong Password",
+            ]);
+        }
+        
+    }
 }
