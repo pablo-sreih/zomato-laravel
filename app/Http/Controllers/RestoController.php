@@ -18,16 +18,10 @@ class RestoController extends Controller
 
     public function findResto(Request $request){
         $resto = $request->resto;
-        $name = Restaurant::where('name', '=', $resto)->first();
-        if ($name === null){
-            return response()->json([
-                "status" => "Restaurant Not Found"
-            ]);
-        } else {
-            return response()->json([
-                "status" => "Success",
-                "resto" => $name, 
-            ]);
-        }
+        $name = Restaurant::where('name', 'LIKE', "%$resto%")->get();
+        return response()->json([
+            "status" => "Success",
+            "resto" => $name, 
+        ]);
     }
 }
