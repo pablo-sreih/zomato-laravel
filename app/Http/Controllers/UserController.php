@@ -62,4 +62,13 @@ class UserController extends Controller
             "status" => "Success"
         ]);
     }
+
+    public function modifyUser(Request $request){
+        $id = $request->id;
+        $name = $request->full_name;
+        User::where('id', "=", $id)->update(['full_name'=>$name]);
+        return response()->json([
+            "status" => "Success",
+        ]);
+    }
 }
