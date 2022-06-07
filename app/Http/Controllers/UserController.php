@@ -7,6 +7,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    // Function to Get All The Users from the Database
     public function getAllUsers(){
         $users = User::all();
 
@@ -16,6 +17,7 @@ class UserController extends Controller
         ]);
     }
 
+    // Function to Get User By ID
     public function getUserById(Request $request){
         $id = $request->id;
         $user = User::find($id);
@@ -25,6 +27,7 @@ class UserController extends Controller
         ]);
     }
 
+    // Function to Get the ID of the User and Login
     public function userLogin(Request $request){
         // $email = User::find($request->email);
         // $password = User::find($request->password);
@@ -49,6 +52,7 @@ class UserController extends Controller
         
     }
 
+    // Function to Add a User or Sign Up
     public function addUser(Request $request){
         $user = New User;
         $user->full_name = $request->full_name;
@@ -63,6 +67,7 @@ class UserController extends Controller
         ]);
     }
 
+    // Function to Modify a User
     public function modifyUser(Request $request){
         $id = $request->id;
         $name = $request->full_name;
