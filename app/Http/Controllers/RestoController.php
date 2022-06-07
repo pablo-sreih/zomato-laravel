@@ -24,4 +24,19 @@ class RestoController extends Controller
             "resto" => $name, 
         ]);
     }
+
+    public function addResto(Request $request){
+        $resto = new Restaurant;
+        $resto->name = $request->name;
+        $resto->website = $request->website;
+        $resto->average_cost = $request->average_cost;
+        $resto->email = $request->email;
+        $resto->location = $request->location;
+        $resto->category = $request->category;
+        $resto->save();
+
+        return response()->json([
+            "status" => "Success",
+        ]);
+    }
 }

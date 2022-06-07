@@ -26,3 +26,4 @@ Route::get('/login', [UserController::class, 'userLogin']);
 Route::get('/find_resto', [RestoController::class, 'findResto']);
 Route::post('/add-user', [UserController::class, 'addUser']);
 Route::post('/modify-user', [UserController::class, 'modifyUser']);
+Route::post('/add-resto', [RestoController::class, 'addResto']);
