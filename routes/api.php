@@ -21,3 +21,4 @@ use App\Http\Controllers\ReviewController;
 Route::get('/users', [UserController::class, 'getAllUsers']);
 Route::get('/restos', [RestoController::class, 'getAllRestos']);
 Route::get('/reviews', [ReviewController::class, 'getAllReviews']);
+Route::get('/getuser', [UserController::class, 'getUserById']);
