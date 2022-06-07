@@ -30,8 +30,12 @@ class UserController extends Controller
         // $password = User::find($request->password);
         $email = $request->email;
         $password = $request->password;
-        $user = User::where('email', $email)->first();
-        
+        $user = User::where('email', '=', $email)->first();
+        if ($user === null){
+            return response()->json([
+                "status" => "User not found",
+            ]);
+        }
         if ($password == $user->password){
             return response()->json([
                 "status" => "Success",
