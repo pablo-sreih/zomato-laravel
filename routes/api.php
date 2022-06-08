@@ -22,7 +22,7 @@ Route::get('/users', [UserController::class, 'getAllUsers']);
 Route::get('/restos', [RestoController::class, 'getAllRestos']);
 Route::get('/reviews', [ReviewController::class, 'getAllReviews']);
 Route::get('/get-user', [UserController::class, 'getUserById']);
-Route::get('/login', [UserController::class, 'userLogin']);
+Route::post('/login', [UserController::class, 'userLogin']);
 Route::get('/find_resto', [RestoController::class, 'findResto']);
 Route::post('/add-user', [UserController::class, 'addUser']);
 Route::post('/modify-user', [UserController::class, 'modifyUser']);
